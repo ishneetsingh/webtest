@@ -1,4 +1,13 @@
 from streamlit_webrtc import webrtc_streamer
+import av
+
+def callback(frame):
+        img = frame.to_ndarray(format="bgr24")
+        
+        img = img[:,::-1, :]
+        
+        return av.VideoFrame.from_ndarray(img, format="bgr24")
+
 
 webrtc_streamer(
         key="real-time",
@@ -6,6 +15,7 @@ webrtc_streamer(
             "video": True,
             "audio": False
         },
+        video_frame_callback=callback,
         # For Deploying
         rtc_configuration={
              "iceServers": [
