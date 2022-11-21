@@ -2,7 +2,6 @@ from streamlit_webrtc import webrtc_streamer
 
 webrtc_streamer(
         key="real-time",
-        video_frame_callback=callback,
         media_stream_constraints={
             "video": True,
             "audio": False
