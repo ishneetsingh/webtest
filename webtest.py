@@ -1,12 +1,15 @@
 from streamlit_webrtc import webrtc_streamer
+from MoveNet_Processing_Utils import movenet_processing
 import av
 
 def callback(frame):
         img = frame.to_ndarray(format="bgr24")
         
-        img = img[::-1,:, :]
+        out_image = img.copy()
         
-        return av.VideoFrame.from_ndarray(img, format="bgr24")
+        out_image, _ = movenet_processing(out_image, draw_movenet_skeleton=True, max_people=1)
+        
+        return av.VideoFrame.from_ndarray(out_image, format="bgr24")
 
 
 ctx = webrtc_streamer(
