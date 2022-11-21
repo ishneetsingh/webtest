@@ -9,7 +9,7 @@ def callback(frame):
         return av.VideoFrame.from_ndarray(img, format="bgr24")
 
 
-webrtc_streamer(
+ctx = webrtc_streamer(
         key="real-time",
         media_stream_constraints={
             "video": True,
