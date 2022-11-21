@@ -4,7 +4,7 @@ import av
 def callback(frame):
         img = frame.to_ndarray(format="bgr24")
         
-        img = img[:,::-1, :]
+        img = img[::-1,:, :]
         
         return av.VideoFrame.from_ndarray(img, format="bgr24")
 
