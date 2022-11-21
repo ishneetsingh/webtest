@@ -138,8 +138,6 @@ elif app_mode == 'Run on Image':
         image = np.array(img)
         image = image[:,:,::-1] # Convert to BGR
 
-    st.markdown('**Detected People**')
-    kpi1_text = st.markdown('')
 
     st.sidebar.text('Original Image')
     st.sidebar.image(image, channels="BGR")
@@ -149,8 +147,6 @@ elif app_mode == 'Run on Image':
     out_image = image.copy()
     out_image = movenet_processing(out_image, max_people = max_people, mn_conf = detection_confidence,\
         kp_conf = keypoint_confidence, pred_conf = classification_confidence, draw_movenet_skeleton = draw_skeleton)
-
-    kpi1_text.write(f"<h1 style='text-align: left;'>{people_count}</h1>", unsafe_allow_html=True)
 
     st.subheader('Output Image')
     st.image(out_image, channels="BGR", use_column_width = True)
