@@ -36,7 +36,6 @@ def movenet_processing(frame, max_people=6, mn_conf=0.5, kp_conf=0.3, pred_conf=
     res = MOVENET(input_image)
     keypoints_with_scores = res['output_0'].numpy()[:,:,:51].reshape((6,17,3))
 
-    people_detected = 0
 
     for i in range(len(keypoints_with_scores)):
         if i >= max_people:
@@ -46,7 +45,6 @@ def movenet_processing(frame, max_people=6, mn_conf=0.5, kp_conf=0.3, pred_conf=
 
         confidence = sum([person[j][2] for j in range(17)])/17
         if confidence > mn_conf:
-            people_detected += 1
 
             kp_with_scores = person.copy()
             M = get_affine_transform_to_fixed_sizes_with_padding((height, width), (192, 192))
@@ -61,6 +59,6 @@ def movenet_processing(frame, max_people=6, mn_conf=0.5, kp_conf=0.3, pred_conf=
             if draw_movenet_skeleton:
                 draw_skeleton(frame, kp_with_scores, kp_conf)
             classifier_prediction_for_person(person, frame, pred_conf, coords)
-    return frame, people_detected
+    return frame
 
         
