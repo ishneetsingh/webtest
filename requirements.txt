@@ -1,9 +1,9 @@
-insightface==0.6.2
 numpy
 onnx
 onnxruntime
 Cython
 cmake
+insightface==0.6.2
 opencv-python-headless==4.6.0.66
 tensorflow-hub
 pillow==9.0.1
