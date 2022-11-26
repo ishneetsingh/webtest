@@ -1,4 +1,4 @@
-insightface
+
 opencv-python-headless==4.6.0.66
 numpy
 tensorflow-hub
@@ -9,4 +9,3 @@ temp
 streamlit_webrtc
 thread6
 av
-streamlit
