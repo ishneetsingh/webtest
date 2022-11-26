@@ -12,4 +12,5 @@ temp
 streamlit_webrtc
 thread6
 av
+python==3.8
 insightface
