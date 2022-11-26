@@ -1,4 +1,6 @@
 insightface
+onnx
+onnxruntime
 opencv-python-headless==4.6.0.66
 numpy
 tensorflow-hub
