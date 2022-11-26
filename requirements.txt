@@ -1,4 +1,4 @@
-insightface
+insightface==0.6.2
 numpy
 onnx
 onnxruntime
