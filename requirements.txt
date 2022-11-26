@@ -1,4 +1,4 @@
-#insightface
+insightface
 numpy
 onnx
 onnxruntime
