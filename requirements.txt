@@ -1,5 +1,5 @@
 insightface==0.6.2
-cython
+Cython
 opencv-python-headless==4.6.0.66
 numpy
 tensorflow-hub
