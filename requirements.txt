@@ -1,8 +1,10 @@
 insightface
+numpy
 onnx
 onnxruntime
+Cython
+cmake
 opencv-python-headless==4.6.0.66
-numpy
 tensorflow-hub
 pillow==9.0.1
 tensorflow
