@@ -1,9 +1,3 @@
-$ sudo update-alternatives --install /usr/bin/python python /usr/bin/python3.4 1
-$ sudo update-alternatives --config python
-
-
-
-
 numpy
 onnx
 onnxruntime
@@ -18,5 +12,4 @@ temp
 streamlit_webrtc
 thread6
 av
-python==3.8
 insightface
