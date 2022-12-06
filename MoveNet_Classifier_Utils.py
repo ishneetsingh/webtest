@@ -18,7 +18,7 @@ POSE_NAMES = [
 
 @st.cache(allow_output_mutation=True)
 def load_classifier():
-    return tf.lite.Interpreter(model_path="./model/model.tflite")
+    return tf.lite.Interpreter(model_path="./model/ownlstm.tflite")
 
 
 CLASSIFIER = load_classifier()
