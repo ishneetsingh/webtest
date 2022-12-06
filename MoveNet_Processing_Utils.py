@@ -4,7 +4,6 @@ import numpy as np
 import streamlit as st
 from MoveNet_Drawing_Utils import draw_skeleton
 from MoveNet_Classifier_Utils import classifier_prediction_for_person
-from insightface.app import FaceAnalysis
 import cv2
 
 
@@ -14,14 +13,9 @@ def load_movenet():
     interpreter = hub.load('https://tfhub.dev/google/movenet/multipose/lightning/1')
     return interpreter.signatures['serving_default']
 
-@st.cache(allow_output_mutation=True)
-def load_insightface():
-    app = FaceAnalysis(allowed_modules=['detection'])
-    app.prepare(ctx_id=0, det_size=(640, 640))
-    return app
+
 
 MOVENET = load_movenet()
-INSIGHTFACE = load_insightface()
 
 
 def get_affine_transform_to_fixed_sizes_with_padding(size, new_sizes):
@@ -36,20 +30,7 @@ def get_affine_transform_to_fixed_sizes_with_padding(size, new_sizes):
 def movenet_processing(frame, max_people=6, mn_conf=0.5, kp_conf=0.3, pred_conf=0.5, draw_movenet_skeleton = True):
     height, width = frame.shape[:2]
 
-    '''First blur all faces with InsightFace'''
-    faces = INSIGHTFACE.get(frame)
-
-    for face in faces:
-        # Blurring
-        x1  = int(face['bbox'][0])
-        y1  = int(face['bbox'][1])
-        x2 = int(face['bbox'][2])
-        y2 = int(face['bbox'][3])
-
-        roi = frame[y1:y2, x1:x2]
-        roi = cv2.GaussianBlur(roi, (23, 23), 30)
-        frame[y1:y2, x1:x2] = roi
-
+    
     '''Then run MoveNet and Classifier'''
     # Reshape image for processing
     img = frame.copy()
