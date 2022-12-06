@@ -1,13 +1,11 @@
 import cv2
 import tensorflow as tf
 import numpy as np
-import streamlit as st
-
 
 RECTANGLE_COLOURS = {
-    0: (242, 225, 204),
-    1: (213, 247, 251),
-    2: (222, 205, 245)
+    0: (204, 225, 242),
+    1: (251, 247, 213),
+    2: (245, 205, 222)
 }
 
 POSE_NAMES = [
@@ -16,16 +14,14 @@ POSE_NAMES = [
     "Lying"
 ]
 
-@st.cache(allow_output_mutation=True)
 def load_classifier():
-    return tf.lite.Interpreter(model_path="./model/ownlstm.tflite")
-
+    return tf.lite.Interpreter(model_path='./model/ownlstmwithscaling.tflite')
 
 CLASSIFIER = load_classifier()
 CLASSIFIER.allocate_tensors()
 
-def classifier_prediction_for_person(keypoints_of_person, frame, conf_threshold, coords):
-    temp = np.reshape(keypoints_of_person, (1, 51, 1))
+def classifier_prediction_for_person(keypoints_of_person, frame, conf_threshold, coords, n_features=51):
+    temp = np.reshape(keypoints_of_person, (1, n_features, 1))
 
     # Setup input and output (Classifier)
     classifier_in = CLASSIFIER.get_input_details()
