@@ -8,4 +8,4 @@ temp
 streamlit_webrtc
 thread6
 av
-sklearn
+scikit-learn
