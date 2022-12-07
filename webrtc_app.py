@@ -125,7 +125,7 @@ elif app_mode == 'Run on Image':
     classification_confidence = st.sidebar.slider("Minimum Classification Confidence", min_value=0.0, max_value=1.0, value=0.5)
     st.sidebar.markdown('---')
 
-    img_file_buffer = st.sidebar.file_uploader("Upload Image", type=["jpg", "jpeg"])
+    img_file_buffer = st.sidebar.file_uploader("Upload Image", type=["jpg", "jpeg", "png"])
 
     if img_file_buffer is not None:
         img = Image.open(img_file_buffer)
