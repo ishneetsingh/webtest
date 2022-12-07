@@ -15,7 +15,7 @@ POSE_NAMES = [
 ]
 
 def load_classifier():
-    return tf.lite.Interpreter(model_path='./model/ownlstm.tflite')
+    return tf.lite.Interpreter(model_path='./model/ownlstmfisheractual.tflite')
 
 CLASSIFIER = load_classifier()
 CLASSIFIER.allocate_tensors()
