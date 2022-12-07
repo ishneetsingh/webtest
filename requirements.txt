@@ -4,8 +4,6 @@ tensorflow-hub
 pillow==9.0.1
 tensorflow
 matplotlib==3.5.1
-temp
 streamlit_webrtc
-thread6
 av
 scikit-learn
