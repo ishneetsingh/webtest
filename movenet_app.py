@@ -172,8 +172,8 @@ elif app_mode == 'Run in Real-Time':
     st.sidebar.markdown('---')
     max_people = st.sidebar.number_input('Maximum Number of People', value=3, min_value=1, max_value=6)
     st.sidebar.markdown('---')
-    detection_confidence = st.sidebar.slider("Minimum Person Detection Confidence", min_value=0.0, max_value=1.0, value=0.5)
-    keypoint_confidence = st.sidebar.slider("Minimum Keypoint Detection Confidence", min_value=0.0, max_value=1.0, value=0.5)
+    detection_confidence = st.sidebar.slider("Minimum Person Detection Confidence", min_value=0.0, max_value=1.0, value=0.15)
+    keypoint_confidence = st.sidebar.slider("Minimum Keypoint Detection Confidence", min_value=0.0, max_value=1.0, value=0.2)
     classification_confidence = st.sidebar.slider("Minimum Classification Confidence", min_value=0.0, max_value=1.0, value=0.5)
     st.sidebar.markdown('---')
 
