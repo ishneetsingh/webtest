@@ -1,0 +1,6 @@
+name: Run Python Script
+
+env:
+  sid: ${{ secrets.SID }}
+  auth: ${{ secrets.AUTH }}
+  
