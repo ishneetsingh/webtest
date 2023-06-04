@@ -1,5 +1,5 @@
 import streamlit as st
-from streamlit_webrtc import webrtc_streamer
+from streamlit_webrtc import webrtc_streamer, WebRtcMode
 import cv2
 from MoveNet_Processing_Utils import movenet_processing
 import av
@@ -214,6 +214,7 @@ elif app_mode == 'Run in Real-Time':
 
     webrtc_streamer(
         key="real-time",
+        mode=WebRtcMode.SENDRECV,
         video_frame_callback=callback,
         media_stream_constraints={
             "video": True,
