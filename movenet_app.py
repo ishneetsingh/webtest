@@ -39,7 +39,7 @@ def callback(frame):
 
     return av.VideoFrame.from_ndarray(out_image, format="rgb24")
 
-@st.cache()
+@st.cache
 def image_resize(image, width=None, height=None, inter=cv2.INTER_AREA):
     # Note: inter is for interpolating the image (to shrink it)
     dim = None
