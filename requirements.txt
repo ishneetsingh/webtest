@@ -7,3 +7,4 @@ matplotlib==3.5.1
 streamlit_webrtc
 av
 scikit-learn
+twilio
