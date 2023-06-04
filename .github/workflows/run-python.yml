@@ -22,7 +22,7 @@ jobs:
       
       - name: Run Python Script
         run: |
-          python pip install -r requirements.txt 
+          pip install -r requirements.txt 
           python movenet_app.py
 
  
