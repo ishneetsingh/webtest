@@ -221,5 +221,6 @@ elif app_mode == 'Run in Real-Time':
             "audio": False
         },
         # For Deploying
-        rtc_configuration={"iceServers": get_ice_servers()}
+        rtc_configuration={"iceServers": get_ice_servers()},
+        async_processing=True
     )
