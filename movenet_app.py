@@ -5,7 +5,7 @@ from MoveNet_Processing_Utils import movenet_processing
 import av
 from PIL import Image
 import numpy as np
-from turn import get_ice_servers
+
 
 
 DEMO_IMAGE = "./demos/demo.jpg"
